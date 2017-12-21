@@ -2,7 +2,7 @@
 
 Welcome to the Spirent Developer Community! You will find a wide variety of useful automation assets for your iTest projects and/or Velocity deployments.  This repository is specific to iTest.  The Velocity repository is located [here](https://github.com/Spirent/Velocity-assets).  All Spirent Developer Community assets are available for your immediate download and use. 
 
- <table style="width:100%;">
+ <table style="width:100%; border: 5px white">
   <tr>
      <td style="color:white"><img src="images/Speedometer-QuickCalls.png" alt="Over 1000 QuickCalls!">&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</td> 
     <td style="border: 0px solid black;">This portion of the Spirent Developer Community contains a selection of iTest projects. They are useful for gaining the greatest value from your test equipment, devices, and frameworks. The assets are rich in reusable QuickCall libraries and Response Maps.  Both are key capabilities that will help you create your own automation most efficiently.  They will help you whether or not you are using Python or an Automation framework (e.g., Robot).</td>
