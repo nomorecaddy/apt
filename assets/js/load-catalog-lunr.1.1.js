@@ -105,7 +105,7 @@ $(document).ready(function() {
                         '<h4 class="text-uppercase">'+catalog[ref].category+'</h4>'+  
                     '</div>'+  
                     '<div class=card-desc>'+      
-                    '<p>REST API QuickCalls for inventory, reservation, and user management in Velocity.</p>'+  
+		    '<p>'+catalog[ref].excerpt+'</p>'+
                     '</div>'+  
                     '<hr />'+      
                     '<div class="col-sm-12 location-main">'+   
