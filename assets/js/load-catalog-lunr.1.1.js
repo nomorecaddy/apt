@@ -8,11 +8,17 @@ var catalog = [{
   "excerpt": "Provides basic traffic quickcalls for the STC Tcl API session type and response maps for result and statistics views. Tested with STC FW version 4.75.",
   "class": "Tested by Spirent"
 },{
-  "title": "CloudStress",
+  "title": "Cisco ASR5K",
   "link": "#",
-  "category": "automation",
-  "excerpt": "Example CloudStress test cases including goal-seeking, fixed, and mixed profile test scenarios.",
-  "class": "Reference"    
+  "category": "library",
+  "excerpt": "Quickcalls and response maps for Cisco ASR5K.",
+  "class": "Community"    
+},{
+  "title": "Cisco Nexus",
+  "link": "#",
+  "category": "library",
+  "excerpt": "Cisco Nexus QuickCalls and response maps for NXOS systems. Routing QuickCalls and response maps are included.",
+  "class": "Community"    
 },{
   "title": "Velocity",
   "link": "#",
