@@ -8,6 +8,12 @@ var catalog = [{
   "excerpt": "Provides basic traffic quickcalls for the STC Tcl API session type and response maps for result and statistics views. Tested with STC FW version 4.75.",
   "class": "Tested by Spirent"
 },{
+  "title": "CloudStress",
+  "link": "#",
+  "category": "automation",
+  "excerpt": "Example CloudStress test cases including goal-seeking, fixed, and mixed profile test scenarios.",
+  "class": "Reference"
+},{
   "title": "Cisco ASR5K",
   "link": "#",
   "category": "library",
