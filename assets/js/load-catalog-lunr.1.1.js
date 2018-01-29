@@ -14,6 +14,12 @@ var catalog = [{
   "excerpt": "Example CloudStress test cases including goal-seeking, fixed, and mixed profile test scenarios.",
   "class": "Reference"
 },{
+  "title": "Cisco IOS",
+  "link": "#",
+  "category": "library",
+  "excerpt": "Cisco IOS Quickcalls and response maps for Cisco routers.",
+  "class": "Reference"    
+},{
   "title": "Cisco ASR5K",
   "link": "#",
   "category": "library",
