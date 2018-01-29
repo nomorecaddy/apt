@@ -589,12 +589,13 @@ body {
 
 .about_proin {
 	color: black;
-	padding: 0 20px;
+	/* padding: 0 20px; */
 	text-transform: uppercase;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-    font-size: 12px;
+    /* font-size: 12px; */
 }
+
 
 .about_proin.current, .about_proin:hover, .about_proin:focus { color: #75BD29; }
 .proin-right-text {	margin-top:20px; }
