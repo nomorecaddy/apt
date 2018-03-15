@@ -1,0 +1,89 @@
+============Steps====================
+Procedure main
+	1 open t1 project://iTest7.0.0/session_profiles/ls.rest1.ffsp
+		skip="true"
+		transferableToolId="com.spirent.itest.applications.landsliderest"
+		transferableType="com.spirent.itest.applications.landsliderest.properties.LandslideRestSessionProperties"
+	2 open MME device:MME#ssh
+		normalOffset="1780.142"
+	3 getEnodeBDetails MME -detailedStats false
+		normalOffset="19.993"
+		estimatedStepExecutionTime="1.162"
+		expectedIdleTime="1.068"
+		expectedIdleTime.inherit="false"
+		useFieldsInCommand="false"
+	4 RetrieveTestSession t1 
+		analyze
+			query handle()
+			store handle0
+		skip="true"
+		normalOffset="23.43"
+		estimatedStepExecutionTime="0.374"
+		library="0"
+	5 ConfigureTsGroup t1 
+		skip="true"
+		normalOffset="17.925"
+		testHandle="$handle0"
+		tsId="2"
+	6 ConfigureTestcaseFavoriteParameters t1 
+		skip="true"
+		normalOffset="37.299"
+		testHandle="$handle0"
+		inherit="false"
+		item(parameterName="Imsi")(parameterName.inherit="false")(parameterName.sub="false")(parameterValue="355451060356000")(parameterValue.inherit="false")(parameterValue.sub="false")
+		item(parameterName="NasApn_0")(parameterName.inherit="false")(parameterName.sub="false")(parameterValue="apn6")(parameterValue.inherit="false")(parameterValue.sub="false")
+		inherit="false"
+		item(nodeName="EnbUserAddr")(nodeName.inherit="false")(nodeName.sub="false")
+			nodeParameter(inherit="false")
+				item(parameterName="ip")(parameterName.inherit="false")(parameterName.sub="false")(parameterValue="10.100.6.10")(parameterValue.inherit="false")(parameterValue.sub="false")
+		item(type.inherit="false")(type.sub="false")(nodeName="MmeSut")(nodeName.inherit="false")(nodeName.sub="false")(sutName="mme_6")(sutName.inherit="false")(sutName.sub="false")
+		item(nodeName="EnbControlAddr")(nodeName.inherit="false")(nodeName.sub="false")
+			nodeParameter(inherit="false")
+				item(parameterName="ip")(parameterName.inherit="false")(parameterName.sub="false")(parameterValue="10.100.6.1")(parameterValue.inherit="false")(parameterValue.sub="false")
+	7 Run t1 
+		analyze
+			query id()
+			store runId0
+		skip="true"
+		normalOffset="12.512"
+		estimatedStepExecutionTime="7.987"
+		testHandle="$handle0"
+	8 getEnodeBDetails MME -detailedStats true
+		normalOffset="14.328"
+		estimatedStepExecutionTime="0.202"
+		expectedIdleTime="1.068"
+		expectedIdleTime.inherit="false"
+		useFieldsInCommand="false"
+	9 getMobileSubscriberDetails MME -imsi 310120017639024
+		analyze
+			query mapped/Json/imsiStatus
+			assert $value ne "NOT_CONFIRM"
+				When True
+					PassTestIfNotAlreadyFailed 
+					DeclareExecutionIssue OK:{auto_message_true}
+				When False
+					FailTest 
+					DeclareExecutionIssue Error:{auto_message_false}
+		normalOffset="14.173"
+		estimatedStepExecutionTime="0.194"
+		expectedIdleTime="0.577"
+		expectedIdleTime.inherit="false"
+		useFieldsInCommand="false"
+	10 ShowRunningTestCriteria t1 
+		skip="true"
+		normalOffset="68.998"
+		estimatedStepExecutionTime="0.405"
+		runningTestId="$runId0"
+	11 StopRunningTest t1 
+		skip="true"
+		normalOffset="112.929"
+		estimatedStepExecutionTime="0.359"
+		runningTestId="$runId0"
+	12 close t1 
+		skip="true"
+		normalOffset="27.516"
+	13 command MME exit
+		normalOffset="7.003"
+		estimatedStepExecutionTime="0.094"
+	14 close MME 
+		normalOffset="0.001"

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<SessionTemplate version="7.0.0.fa27930">
+    <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+    <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+        <TerminalProperties>
+            <terminalSizeProperties>
+                <termWidth inherit="false">80</termWidth>
+            </terminalSizeProperties>
+            <captureProperties>
+                <commandBreakChars inherit="false">
+                    <item>[char Ctrl-C]</item>
+                </commandBreakChars>
+            </captureProperties>
+            <prompts merge="true">
+                <item name="prompt1" MatchMethod="WILDCARD">
+                    <Content>*$</Content>
+                </item>
+                <item name="prompt2" MatchMethod="WILDCARD">
+                    <Content>*#</Content>
+                </item>
+            </prompts>
+        </TerminalProperties>
+        <ipAddress inherit="false">velocity700a-cal-lab.spirenteng.com</ipAddress>
+        <user inherit="false">root</user>
+        <password inherit="false">iRyLc4KQj80=</password>
+    </sessionProperties>
+    <responseLibrary inherit="false">project://a_MME</responseLibrary>
+    <sessionClassTestCase inherit="false">ssh_1.fftc</sessionClassTestCase>
+    <isReferenceProfile>true</isReferenceProfile>
+</SessionTemplate>

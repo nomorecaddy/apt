@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<testCase version="7.0.0.fa27930">
+    <general>
+        <emulation enable="true"/>
+    </general>
+    <testbed>project://a_MME/topologies/topology1.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="fd0b311e-ae88-4f32-b605-f0690c1a5e55" action="comment">
+                    <command>
+                        <body>login to MME</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="7c0dade1-79ca-4843-a655-14898137d736" action="open" session="MME">
+                            <command>
+                                <body>device:MME#ssh</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                                <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                                <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            </applicationProperties>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                            <emulation emulate="ALWAYS">
+                                <behavior>
+                                    <response>Ubuntu 12.04.5 LTS
+</response>
+                                    <responseType>text</responseType>
+                                    <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;&gt;
+    &lt;port&gt;23&lt;/port&gt;
+    &lt;connectStatus&gt;true&lt;/connectStatus&gt;
+    &lt;retries&gt;0&lt;/retries&gt;
+    &lt;prompt&gt;laquinta login: &lt;/prompt&gt;
+    &lt;promptName&gt;prompt1&lt;/promptName&gt;
+    &lt;ipAddress&gt;172.16.97.127&lt;/ipAddress&gt;
+&lt;/structure&gt;
+</structuredData>
+                                    <aliases>
+                                        <item name="port">
+                                            <queryFormatString>.//port</queryFormatString>
+                                        </item>
+                                        <item name="connectStatus">
+                                            <queryFormatString>.//connectStatus</queryFormatString>
+                                        </item>
+                                        <item name="retries">
+                                            <queryFormatString>.//retries</queryFormatString>
+                                        </item>
+                                        <item name="prompt">
+                                            <queryFormatString>.//prompt</queryFormatString>
+                                        </item>
+                                        <item name="promptName">
+                                            <queryFormatString>.//promptName</queryFormatString>
+                                        </item>
+                                        <item name="ipAddress">
+                                            <queryFormatString>.//ipAddress</queryFormatString>
+                                        </item>
+                                    </aliases>
+                                    <duration>0.7</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9a8056fa-9eed-48c7-8556-e9736aae1a8f" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; 5} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="f28fd6ae-a3b9-4b9a-a47b-752b47239159" action="comment">
+                            <command>
+                                <body>retrieve network element statistics</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="fc569bfa-5507-4fdf-b7ba-b7a02dd8be0d" action="command" session="MME" useResponseMapLibraryApplicability="false">
+                                    <command>
+                                        <body>RTRV-NE-STS:;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <responseMap>project://a_MME/response_maps/RTRV-NE-STS.ffrm</responseMap>
+                                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                                    <emulation>
+                                        <behavior>
+                                            <response>[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS : RTRV
+   NE_TYPE = ENB
+   ID      = ALL
+   STATUS  = ALL
+   ENB     = -
+   /* COMMAND ACCEPTED */
+ 
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS - [1/2] : RTRV
+   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION 
+   ENB             0   18.165.148.162                           36412   INS   310-120-32769(M), eNB32769 
+                  11   18.165.236.242                           36412   INS   310-120-32777(M), eNB32777 
+                  36   18.165.148.154                           36412   OOS   310-120-24577(M), eNB24577 
+
+</response>
+                                        </behavior>
+                                    </emulation>
+                                </item>
+                                <item guid="4b687d3a-a7e6-4fcc-a6ff-e2818c6b5080" action="command" session="MME" useResponseMapLibraryApplicability="false">
+                                    <command>
+                                        <body>RTRV-NE-STS:ENB;</body>
+                                    </command>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <responseMap>project://a_MME/response_maps/RTRV-NE-STS.ENB.ffrm</responseMap>
+                                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                                    <emulation>
+                                        <behavior>
+                                            <response>[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS : RTRV
+   NE_TYPE = ENB
+   ID      = ALL
+   STATUS  = ALL
+   ENB     = -
+   /* COMMAND ACCEPTED */
+ 
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS - [1/2] : RTRV
+   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION 
+   ENB             0   18.165.148.162                           36412   INS   310-120-32769(M), eNB32769 
+                  11   18.165.236.242                           36412   INS   310-120-32777(M), eNB32777 
+                  36   18.165.148.154                           36412   OOS   310-120-24577(M), eNB24577 
+</response>
+                                        </behavior>
+                                    </emulation>
+                                </item>
+                                <item guid="5e29e5c1-0de8-4672-88ad-998c872dc351" action="command" session="MME" useResponseMapLibraryApplicability="false">
+                                    <command>
+                                        <body>RTRV-MS-INF:IMSI=310120017639024;</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>REG_STATE()</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="assert">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                                        <expression>$value eq &quot;REGISTERED&quot;</expression>
+                                                        <actionsWhenTrue>
+                                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                                    <message>{auto_message_true}</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenTrue>
+                                                        <actionsWhenFalse>
+                                                            <item actionId="FailTest">
+                                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                                            </item>
+                                                            <item actionId="DeclareExecutionIssue">
+                                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                                    <message>{auto_message_false}</message>
+                                                                </actionProperties>
+                                                            </item>
+                                                        </actionsWhenFalse>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                                    <responseMap>project://a_MME/response_maps/RTRV-MS-INF.IMSI.ffrm</responseMap>
+                                    <useResponseMapLibraryFromSession>false</useResponseMapLibraryFromSession>
+                                    <emulation>
+                                        <behavior>
+                                            <response>[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:33:55
+  M6150 RETRIEVE MOBILE SUBSCRIBER INFORMATION - RADIO AND HSS INFORMATION  - [1/1] : COMPLD
+   IMSI = 310120017639024
+   RESULT            = OK
+   IMSI              = 310120017639024
+   MSISDN            = 6222316479
+   IMEI              = 9900033711679701  STATUS     : NOT_CONFIRM
+   GUTI              = MCC(310) MNC(120) MMEG(H&apos;8006) MMEC(H&apos;21) M-TMSI(H&apos;E8009AD5)
+   GUTI_TIME         = 2014-05-20 17:28:51:164
+   OLD_GUTI          = -
+   OLD_GUTI_TIME     = -
+   EMSC/SESS         = 0/14359                   ROAM              = NO
+   HSS_CONFIRM       = CONFIRM                   URRP              = -
+   REG_STATE         = REGISTERED                S1_STATE          = ECM_IDLE
+   SUSPEND           = OFF                       UNAUTH            = NO
+   CREATE_TYPE       = GUTI_ATTACH               CREATE_TIME       = 2014-05-19 11:58:41:059
+   LAST_ACCESS_TYPE  = SERVICE_REQ               LAST_ACCESS_TIME  = 2014-05-20 17:29:54:655
+   S1_RELEASE_TIME   = 2014-05-20 17:30:04:748   DEREGISTER_TIME   = 2014-05-20 17:28:42:427
+   PAGE_PROCEED      = ALW                       ACTIVE_TIME       = -
+   LAST_HSS_UPD_TIME = 2014-05-20 17:28:51:021  
+   E-UTRAN_CGI       = MCC(310) MNC(120) CELL(32777-9)
+   ENB_ID            = 310-120-32777(M) / ENBGRP(-)
+   TAI               = MCC(310) MNC(120) TAC(H&apos;621B) 
+   TA_LIST           = TAL(3)
+                       310/120/H&apos;621B  
+   DZ_LIST           = -
+   CSG               = -
+   UE_RADIO_CAPA     = H&apos;023802035C51800260CA8050B8BFC2E2FF0B8BFBF0FFCE30310009408004
+                         A1400217E00000000307E1FF9DE30000000307E1FF9C6000000000040D0B
+                         0B00098000810F01800A811F00
+   UE_NET_CAPA       = E0 60 
+                       EEA0(1) EEA1(1) EEA2(1) EEA3(0) EEA4(0) EEA5(0) EEA6(0) EEA7(0)
+                       EIA0(0) EIA1(1) EIA2(1) EIA3(0) EIA4(0) EIA5(0) EIA6(0) EIA7(0)
+   MS_NET_CAPA       = -
+   MOBSCM2           = H&apos;4F18A6
+   MOBSCM3           = -
+   CODECLIST         = -
+   PAGING_DRX        = H&apos;0A00
+   VOICE_DOMAIN_PREF = VOICE_CENTRIC / CS_VOICE_ONLY
+   DEVICE_PROPERTY   = NONE
+   S102_ASSO         = ON                        IWS_ADDR          = 10.77.147.61
+   SUBS_STS          = SERVICE_GRANTED           HSS_ADDR          = hip.lenhss01-imscore.labtrial.net
+   NET_ACCESS_MODE   = -                         STN_SR            = -
+   CHA_CHAR          = H&apos;0100                    APN_OI            = mnc120.mcc310.gprs
+   RFSP              = 1                         ICS               = -
+   APN_CONF_CNT      = 5                         DFT_CTXT_ID       = 1
+   AMBR_MAX_UP       = 100000000(bps)            AMBR_MAX_DOWN     = 100000000(bps)
+   ROAM_RSTR         = -                        
+   ACCESS_RSTR       = -
+   SUBS_TAU          = -                         MPS               = -
+   VPLMN_LIPA        = -                         RELAY_NODE_IND    = -
+   MDT_USER_CONSENT  = -                         RFSP_IN_USE       = 1   
+   T3412_IN_USE      = 7200 (Sec)                T3346             = -
+   KSI               = 0
+   INT_ALG           = SNOW3G
+   CIP_ALG           = SNOW3G
+   INT_KEY           = H&apos;22E2E9B5CF921D6154943A4E24A2E52B00000000000000000000000000000000
+   CIP_KEY           = H&apos;04B05EE734069305EF8D67A1DBFB448A00000000000000000000000000000000
+   NAS_UP_COUNT      = 80
+   NAS_DN_COUNT      = 39
+;
+</response>
+                                        </behavior>
+                                    </emulation>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="eaa75bf3-da99-472b-8292-24d458befe70" action="comment">
+                    <command>
+                        <body>close session to MME and cleanup</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="75447e5e-00df-449f-bbca-7a5150784021" action="close" session="MME" normalOffset="0.016">
+                            <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                            <emulation>
+                                <behavior>
+                                    <responseType>text</responseType>
+                                    <structuredData>
+&lt;structure xmlns:map=&quot;http://www.fnfr.com/svt/mapping&quot;/&gt;
+</structuredData>
+                                    <duration>0.5</duration>
+                                </behavior>
+                            </emulation>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

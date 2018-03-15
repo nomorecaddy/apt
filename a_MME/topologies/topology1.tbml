@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tbml xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.teslaalliance.org/trs/tbml/1.0/tbml-core.xsd" xmlns="http://www.teslaalliance.org/trs/tbml/1.0">
+  <header>
+    <name></name>
+    <description></description>
+    <property name="author">cwhitty</property>
+    <property name="dateCreated">2015-03-13T00:12:10.738-05:00</property>
+    <property name="dateModified">2017-12-29T13:53:18.267-06:00</property>
+    <property name="creationTool" vendor="com.fnfr">com.fnfr.itest.topology.tbml.diagram</property>
+    <property name="creationToolVersion" vendor="com.fnfr">7.0.0.fa27930</property>
+  </header>
+  <body>
+    <resources>
+      <resource guid="3a95be8e-1d5b-485b-b1ce-2840a282fdc2" id="resource_0" type="station">
+        <boundary height="100" width="100" x="252" y="372"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/BaseStation_32.gif</property>
+        <property name="name">eNodeB 1</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="33ad0ac4-0845-4c2b-936c-245e7c76368a" id="resource_0_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="07242db0-2aa3-41c7-ab6f-0a009351d6cc" id="resource_0_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+      </resource>
+      <resource guid="987c689d-f96f-41cb-93fd-8405a34814c3" id="resource_1" type="station">
+        <boundary height="100" width="100" x="408" y="372"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/BaseStation_32.gif</property>
+        <property name="name">eNodeB 2</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="a36ae418-1c81-4d4e-84d7-f52d75690b5a" id="resource_1_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="31fc8054-55b2-4c31-88dd-a48a1e986e4e" id="resource_1_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+      </resource>
+      <resource guid="dd5c4f81-8ba0-4c38-9cdf-83459c1cea5b" id="resource_2" type="gateway">
+        <boundary height="100" width="100" x="252" y="216"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Gateway_32.gif</property>
+        <property name="name">S-GW</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="3d4a54d5-1812-4fd7-bdf8-c14f74204063" id="resource_2_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="c9fd6a52-d229-4c5a-bcd9-fa374bad841d" id="resource_2_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="5bdd2415-96a6-4bcd-a1a7-c3640c8addec" id="resource_2_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+      <resource guid="e4234968-10d8-41c5-843b-26773e437305" id="resource_3" type="router">
+        <boundary height="100" width="100" x="408" y="216"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/router_32.gif</property>
+        <property name="name">MME</property>
+        <extensions type="com.fnfr.itest.session" xs:namespace="com.fnfr.itest.session">
+          <session baseSessionProfile="" name="ssh" provider="com.fnfr">
+            <sessionProfile version="7.0.0.fa27930">
+              <baseApplication>com.fnfr.svt.applications.ssh</baseApplication>
+              <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties">
+                <ipAddress inherit="false">10.108.36.1</ipAddress>
+                <user inherit="false">mme1</user>
+                <password inherit="false">SrqvrrOjrgE=</password>
+              </sessionProperties>
+              <baseProfile>project://a_MME/session_profiles/ssh_1.ffsp</baseProfile>
+              <standalone>false</standalone>
+            </sessionProfile>
+          </session>
+        </extensions>
+        <resource guid="5b0c5c2a-7533-4345-a790-d64ce0eb5be7" id="resource_3_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+        <resource guid="d04d9229-186b-4a42-942f-04a64af395b1" id="resource_3_1" type="port">
+          <property name="name">port2</property>
+        </resource>
+        <resource guid="9dfedef1-27c4-4b27-8e6f-cabacb9a6624" id="resource_3_2" type="port">
+          <property name="name">port3</property>
+        </resource>
+      </resource>
+      <resource guid="eabd8cb3-421e-4f4b-9412-d7e25495a70b" id="resource_4" type="gateway">
+        <boundary height="100" width="100" x="252" y="72"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Gateway_32.gif</property>
+        <property name="name">PDN-GW</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="8bc957ba-d919-4269-8588-3806f06d43ea" id="resource_4_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+      <resource guid="8eabdb44-5fad-46a8-87d0-d47c8f042fbf" id="resource_5" type="storage">
+        <boundary height="100" width="100" x="408" y="72"/>
+        <property name="iconURI">platform:/plugin/com.fnfr.itest.topology.tbml.edit/icons/full/topology/Storage-Dev_32.gif</property>
+        <property name="name">HSS</property>
+        <property name="isSessionRequired" vendor="com.fnfr">false</property>
+        <resource guid="5454ae0c-5f7c-4a17-a25e-cc330c45cf59" id="resource_5_0" type="port">
+          <property name="name">port1</property>
+        </resource>
+      </resource>
+    </resources>
+    <connectivity>
+      <link id="link_0">
+        <property name="name">link1</property>
+        <endpoint id="resource_0_0"/>
+        <endpoint id="resource_2_0"/>
+      </link>
+      <link id="link_1">
+        <property name="name">link2</property>
+        <endpoint id="resource_1_0"/>
+        <endpoint id="resource_3_0"/>
+      </link>
+      <link id="link_2">
+        <property name="name">link3</property>
+        <endpoint id="resource_2_1"/>
+        <endpoint id="resource_1_1"/>
+      </link>
+      <link id="link_3">
+        <property name="name">link4</property>
+        <endpoint id="resource_3_1"/>
+        <endpoint id="resource_0_1"/>
+      </link>
+      <link id="link_4">
+        <property name="name">link5</property>
+        <endpoint id="resource_4_0"/>
+        <endpoint id="resource_2_2"/>
+      </link>
+      <link id="link_5">
+        <property name="name">link6</property>
+        <endpoint id="resource_5_0"/>
+        <endpoint id="resource_3_2"/>
+      </link>
+    </connectivity>
+  </body>
+  <illustration>
+    <layer/>
+  </illustration>
+</tbml>

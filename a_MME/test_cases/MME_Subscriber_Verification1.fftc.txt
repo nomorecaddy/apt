@@ -1,0 +1,170 @@
+============General==================
+emulation(enable="true")
+============Steps====================
+Procedure main
+	1 #login to MME
+		useFieldsInCommand="false"
+		1.1 open MME device:MME#ssh
+			useFieldsInCommand="false"
+			emulation(emulate="ALWAYS")
+			response="Ubuntu 12.04.5 LTS
+"
+			responseType="text"
+			structuredData="
+<structure xmlns:map="http://www.fnfr.com/svt/mapping">
+    <port>23</port>
+    <connectStatus>true</connectStatus>
+    <retries>0</retries>
+    <prompt>laquinta login: </prompt>
+    <promptName>prompt1</promptName>
+    <ipAddress>172.16.97.127</ipAddress>
+</structure>
+"
+			aliases
+				port
+					queryFormatString=".//port"
+				connectStatus
+					queryFormatString=".//connectStatus"
+				retries
+					queryFormatString=".//retries"
+				prompt
+					queryFormatString=".//prompt"
+				promptName
+					queryFormatString=".//promptName"
+				ipAddress
+					queryFormatString=".//ipAddress"
+			duration="0.7"
+	2 for {set i 0} {$i < 5} {incr i}
+		useFieldsInCommand="false"
+		2.1 #retrieve network element statistics
+			useFieldsInCommand="false"
+			2.1.1 command MME RTRV-NE-STS:;
+				useResponseMapLibraryApplicability="false"
+				responseMap="project://a_MME/response_maps/RTRV-NE-STS.ffrm"
+				useResponseMapLibraryFromSession="false"
+				emulation
+				response="[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS : RTRV
+   NE_TYPE = ENB
+   ID      = ALL
+   STATUS  = ALL
+   ENB     = -
+   /* COMMAND ACCEPTED */
+ 
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS - [1/2] : RTRV
+   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION 
+   ENB             0   18.165.148.162                           36412   INS   310-120-32769(M), eNB32769 
+                  11   18.165.236.242                           36412   INS   310-120-32777(M), eNB32777 
+                  36   18.165.148.154                           36412   OOS   310-120-24577(M), eNB24577 
+
+"
+			2.1.2 command MME RTRV-NE-STS:ENB;
+				useResponseMapLibraryApplicability="false"
+				responseMap="project://a_MME/response_maps/RTRV-NE-STS.ENB.ffrm"
+				useResponseMapLibraryFromSession="false"
+				emulation
+				response="[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS : RTRV
+   NE_TYPE = ENB
+   ID      = ALL
+   STATUS  = ALL
+   ENB     = -
+   /* COMMAND ACCEPTED */
+ 
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS - [1/2] : RTRV
+   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION 
+   ENB             0   18.165.148.162                           36412   INS   310-120-32769(M), eNB32769 
+                  11   18.165.236.242                           36412   INS   310-120-32777(M), eNB32777 
+                  36   18.165.148.154                           36412   OOS   310-120-24577(M), eNB24577 
+"
+			2.1.3 command MME RTRV-MS-INF:IMSI=310120017639024;
+				analyze
+					query REG_STATE()
+					assert $value eq "REGISTERED"
+						When True
+							PassTestIfNotAlreadyFailed 
+							DeclareExecutionIssue OK:{auto_message_true}
+						When False
+							FailTest 
+							DeclareExecutionIssue Error:{auto_message_false}
+				useResponseMapLibraryApplicability="false"
+				responseMap="project://a_MME/response_maps/RTRV-MS-INF.IMSI.ffrm"
+				useResponseMapLibraryFromSession="false"
+				emulation
+				response="[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:33:55
+  M6150 RETRIEVE MOBILE SUBSCRIBER INFORMATION - RADIO AND HSS INFORMATION  - [1/1] : COMPLD
+   IMSI = 310120017639024
+   RESULT            = OK
+   IMSI              = 310120017639024
+   MSISDN            = 6222316479
+   IMEI              = 9900033711679701  STATUS     : NOT_CONFIRM
+   GUTI              = MCC(310) MNC(120) MMEG(H'8006) MMEC(H'21) M-TMSI(H'E8009AD5)
+   GUTI_TIME         = 2014-05-20 17:28:51:164
+   OLD_GUTI          = -
+   OLD_GUTI_TIME     = -
+   EMSC/SESS         = 0/14359                   ROAM              = NO
+   HSS_CONFIRM       = CONFIRM                   URRP              = -
+   REG_STATE         = REGISTERED                S1_STATE          = ECM_IDLE
+   SUSPEND           = OFF                       UNAUTH            = NO
+   CREATE_TYPE       = GUTI_ATTACH               CREATE_TIME       = 2014-05-19 11:58:41:059
+   LAST_ACCESS_TYPE  = SERVICE_REQ               LAST_ACCESS_TIME  = 2014-05-20 17:29:54:655
+   S1_RELEASE_TIME   = 2014-05-20 17:30:04:748   DEREGISTER_TIME   = 2014-05-20 17:28:42:427
+   PAGE_PROCEED      = ALW                       ACTIVE_TIME       = -
+   LAST_HSS_UPD_TIME = 2014-05-20 17:28:51:021  
+   E-UTRAN_CGI       = MCC(310) MNC(120) CELL(32777-9)
+   ENB_ID            = 310-120-32777(M) / ENBGRP(-)
+   TAI               = MCC(310) MNC(120) TAC(H'621B) 
+   TA_LIST           = TAL(3)
+                       310/120/H'621B  
+   DZ_LIST           = -
+   CSG               = -
+   UE_RADIO_CAPA     = H'023802035C51800260CA8050B8BFC2E2FF0B8BFBF0FFCE30310009408004
+                         A1400217E00000000307E1FF9DE30000000307E1FF9C6000000000040D0B
+                         0B00098000810F01800A811F00
+   UE_NET_CAPA       = E0 60 
+                       EEA0(1) EEA1(1) EEA2(1) EEA3(0) EEA4(0) EEA5(0) EEA6(0) EEA7(0)
+                       EIA0(0) EIA1(1) EIA2(1) EIA3(0) EIA4(0) EIA5(0) EIA6(0) EIA7(0)
+   MS_NET_CAPA       = -
+   MOBSCM2           = H'4F18A6
+   MOBSCM3           = -
+   CODECLIST         = -
+   PAGING_DRX        = H'0A00
+   VOICE_DOMAIN_PREF = VOICE_CENTRIC / CS_VOICE_ONLY
+   DEVICE_PROPERTY   = NONE
+   S102_ASSO         = ON                        IWS_ADDR          = 10.77.147.61
+   SUBS_STS          = SERVICE_GRANTED           HSS_ADDR          = hip.lenhss01-imscore.labtrial.net
+   NET_ACCESS_MODE   = -                         STN_SR            = -
+   CHA_CHAR          = H'0100                    APN_OI            = mnc120.mcc310.gprs
+   RFSP              = 1                         ICS               = -
+   APN_CONF_CNT      = 5                         DFT_CTXT_ID       = 1
+   AMBR_MAX_UP       = 100000000(bps)            AMBR_MAX_DOWN     = 100000000(bps)
+   ROAM_RSTR         = -                        
+   ACCESS_RSTR       = -
+   SUBS_TAU          = -                         MPS               = -
+   VPLMN_LIPA        = -                         RELAY_NODE_IND    = -
+   MDT_USER_CONSENT  = -                         RFSP_IN_USE       = 1   
+   T3412_IN_USE      = 7200 (Sec)                T3346             = -
+   KSI               = 0
+   INT_ALG           = SNOW3G
+   CIP_ALG           = SNOW3G
+   INT_KEY           = H'22E2E9B5CF921D6154943A4E24A2E52B00000000000000000000000000000000
+   CIP_KEY           = H'04B05EE734069305EF8D67A1DBFB448A00000000000000000000000000000000
+   NAS_UP_COUNT      = 80
+   NAS_DN_COUNT      = 39
+;
+"
+	3 #close session to MME and cleanup
+		useFieldsInCommand="false"
+		3.1 close MME 
+			normalOffset="0.016"
+			emulation
+			responseType="text"
+			structuredData="
+<structure xmlns:map="http://www.fnfr.com/svt/mapping"/>
+"
+			duration="0.5"

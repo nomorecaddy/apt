@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<ResponseMap version="4.4.0.75339">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS : RTRV
+   NE_TYPE = ENB
+   ID      = ALL
+   STATUS  = ALL
+   ENB     = -
+   /* COMMAND ACCEPTED */
+ 
+   LAB_NRT2_MME1 2014-05-20 TUE 17:23:41
+  M2509 RETRIEVE NETWORK ELEMENT STATUS - [1/2] : RTRV
+   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION 
+   ENB             0   18.165.148.162                           36412   INS   310-120-32769(M), eNB32769 
+                  11   18.165.236.242                           36412   INS   310-120-32777(M), eNB32777 
+                  36   18.165.148.154                           36412   OOS   310-120-24577(M), eNB24577 
+</responseBody>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.table.TabularMapperProperties">
+            <tabularMaps>
+                <item name="table1">
+                    <banner>   NE_TYPE        ID   IP_ADDRESS                                PORT   STS   DESCRIPTION </banner>
+                    <bannerStructure>Wildcard</bannerStructure>
+                    <footerStructure>End</footerStructure>
+                    <columnBoundaries>Positional</columnBoundaries>
+                    <columns>
+                        <item name="NE_TYPE">
+                            <width>18</width>
+                        </item>
+                        <item name="ID">
+                            <width>5</width>
+                        </item>
+                        <item name="IP_ADDRESS">
+                            <width>41</width>
+                        </item>
+                        <item name="PORT">
+                            <width>8</width>
+                        </item>
+                        <item name="STS">
+                            <width>6</width>
+                        </item>
+                        <item name="DESCRIPTION">
+                            <width>0</width>
+                        </item>
+                    </columns>
+                </item>
+            </tabularMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="RTRV-NE-STS:ENB;"/>
+</ResponseMap>

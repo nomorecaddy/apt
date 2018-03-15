@@ -1,0 +1,29 @@
+============General==================
+sessionClass(includeTestCase="true")(sessionType="ssh_1.ffsp")
+============Steps====================
+Procedure getInterface
+	1 command $session ifconfig $intf
+		analyze
+			query mac()
+			store var1[return mac]
+		analyze
+			query inet_addr()
+			store var1[return ip/ipv4]
+		analyze
+			query Mask()
+			store var1[return ip/mask]
+		analyze
+			query Bcast()
+			store var1[return ip/bcast]
+Procedure getRoutes
+	1 command $session netstat -rn
+Procedure getMobileSubscriberDetails
+	1 command $session RTRV-MS-INF:IMSI=310120017639024;
+		analyze
+			query STATUS()
+			assert $value == "CONFIRM"
+				When True
+					DeclareExecutionIssue OK:{auto_message_true}
+				When False
+					DeclareExecutionIssue Warning:IMSI Status is $value, expecting CONFIRM
+Procedure getEnodeBDetails

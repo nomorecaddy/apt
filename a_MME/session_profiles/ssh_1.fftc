@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<testCase version="7.0.0.fa27930">
+    <general>
+        <sessionClass includeTestCase="true" sessionType="ssh_1.ffsp"/>
+    </general>
+    <procedures>
+        <item name="getInterface" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="b4cd82b8-2c05-49b8-84ee-be5d6e27c2fc" action="command" session="$session">
+                    <command>
+                        <body>ifconfig $intf</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>mac()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return mac]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>inet_addr()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return ip/ipv4]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>Mask()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return ip/mask]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup" declareNoMatchIssue="false">
+                                        <query>Bcast()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>var1</storageLocation>
+                                        <query>[return ip/bcast]</query>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="intf">
+                    <description>the network interface card</description>
+                    <defaultValue>eth0</defaultValue>
+                </item>
+            </arguments>
+            <response>{&quot;mac&quot;:&quot;value&quot;,&quot;ip&quot;:{&quot;ipv4&quot;:&quot;value&quot;,&quot;bcast&quot;:&quot;value&quot;,&quot;mask&quot;:&quot;value&quot;}}</response>
+        </item>
+        <item name="getRoutes" isPublic="true">
+            <steps>
+                <item guid="1f7ae2cd-ba9a-429a-bf51-316ac427832b" action="command" session="$session">
+                    <command>
+                        <body>netstat -rn</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="ipVersion">
+                    <isMandatory>true</isMandatory>
+                </item>
+                <item name="verbose">
+                    <defaultValue>false</defaultValue>
+                </item>
+                <item name="program"/>
+            </arguments>
+        </item>
+        <item name="getMobileSubscriberDetails" isPublic="true" isVBlock="true">
+            <steps>
+                <item guid="c64c198a-113b-488e-9763-99caa88d560d" action="command" session="$session">
+                    <command>
+                        <body>RTRV-MS-INF:IMSI=310120017639024;</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>STATUS()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value == &quot;CONFIRM&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="Warning">
+                                                    <message>IMSI Status is $value, expecting CONFIRM</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+            <arguments>
+                <item name="imsi">
+                    <description>Get details for this mobile subscriber IMSI</description>
+                </item>
+            </arguments>
+            <response>{&quot;imsiStatus&quot;:&quot;NOT_CONFIRM&quot;}</response>
+        </item>
+        <item name="getEnodeBDetails" isPublic="true">
+            <arguments>
+                <item name="detailedStats"/>
+            </arguments>
+        </item>
+    </procedures>
+</testCase>

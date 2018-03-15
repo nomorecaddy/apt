@@ -1,0 +1,273 @@
+<?xml version="1.0"?>
+<ResponseMap version="7.0.0.fa27930">
+    <sampleDictionary>
+        <item name="sample1">
+            <responseBody>[LAB_NRT2_MME1]                        
+   LAB_NRT2_MME1 2014-05-20 TUE 17:33:55
+  M6150 RETRIEVE MOBILE SUBSCRIBER INFORMATION - RADIO AND HSS INFORMATION  - [1/1] : COMPLD
+   IMSI = 310120017639024
+   RESULT            = OK
+   IMSI              = 310120017639024
+   MSISDN            = 6222316479
+   IMEI              = 9900033711679701  STATUS     : NOT_CONFIRM
+   GUTI              = MCC(310) MNC(120) MMEG(H&apos;8006) MMEC(H&apos;21) M-TMSI(H&apos;E8009AD5)
+   GUTI_TIME         = 2014-05-20 17:28:51:164
+   OLD_GUTI          = -
+   OLD_GUTI_TIME     = -
+   EMSC/SESS         = 0/14359                   ROAM              = NO
+   HSS_CONFIRM       = CONFIRM                   URRP              = -
+   REG_STATE         = REGISTERED                S1_STATE          = ECM_IDLE
+   SUSPEND           = OFF                       UNAUTH            = NO
+   CREATE_TYPE       = GUTI_ATTACH               CREATE_TIME       = 2014-05-19 11:58:41:059
+   LAST_ACCESS_TYPE  = SERVICE_REQ               LAST_ACCESS_TIME  = 2014-05-20 17:29:54:655
+   S1_RELEASE_TIME   = 2014-05-20 17:30:04:748   DEREGISTER_TIME   = 2014-05-20 17:28:42:427
+   PAGE_PROCEED      = ALW                       ACTIVE_TIME       = -
+   LAST_HSS_UPD_TIME = 2014-05-20 17:28:51:021  
+   E-UTRAN_CGI       = MCC(310) MNC(120) CELL(32777-9)
+   ENB_ID            = 310-120-32777(M) / ENBGRP(-)
+   TAI               = MCC(310) MNC(120) TAC(H&apos;621B) 
+   TA_LIST           = TAL(3)
+                       310/120/H&apos;621B  
+   DZ_LIST           = -
+   CSG               = -
+   UE_RADIO_CAPA     = H&apos;023802035C51800260CA8050B8BFC2E2FF0B8BFBF0FFCE30310009408004
+                         A1400217E00000000307E1FF9DE30000000307E1FF9C6000000000040D0B
+                         0B00098000810F01800A811F00
+   UE_NET_CAPA       = E0 60 
+                       EEA0(1) EEA1(1) EEA2(1) EEA3(0) EEA4(0) EEA5(0) EEA6(0) EEA7(0)
+                       EIA0(0) EIA1(1) EIA2(1) EIA3(0) EIA4(0) EIA5(0) EIA6(0) EIA7(0)
+   MS_NET_CAPA       = -
+   MOBSCM2           = H&apos;4F18A6
+   MOBSCM3           = -
+   CODECLIST         = -
+   PAGING_DRX        = H&apos;0A00
+   VOICE_DOMAIN_PREF = VOICE_CENTRIC / CS_VOICE_ONLY
+   DEVICE_PROPERTY   = NONE
+   S102_ASSO         = ON                        IWS_ADDR          = 10.77.147.61
+   SUBS_STS          = SERVICE_GRANTED           HSS_ADDR          = hip.lenhss01-imscore.labtrial.net
+   NET_ACCESS_MODE   = -                         STN_SR            = -
+   CHA_CHAR          = H&apos;0100                    APN_OI            = mnc120.mcc310.gprs
+   RFSP              = 1                         ICS               = -
+   APN_CONF_CNT      = 5                         DFT_CTXT_ID       = 1
+   AMBR_MAX_UP       = 100000000(bps)            AMBR_MAX_DOWN     = 100000000(bps)
+   ROAM_RSTR         = -                        
+   ACCESS_RSTR       = -
+   SUBS_TAU          = -                         MPS               = -
+   VPLMN_LIPA        = -                         RELAY_NODE_IND    = -
+   MDT_USER_CONSENT  = -                         RFSP_IN_USE       = 1   
+   T3412_IN_USE      = 7200 (Sec)                T3346             = -
+   KSI               = 0
+   INT_ALG           = SNOW3G
+   CIP_ALG           = SNOW3G
+   INT_KEY           = H&apos;22E2E9B5CF921D6154943A4E24A2E52B00000000000000000000000000000000
+   CIP_KEY           = H&apos;04B05EE734069305EF8D67A1DBFB448A00000000000000000000000000000000
+   NAS_UP_COUNT      = 80
+   NAS_DN_COUNT      = 39
+</responseBody>
+        </item>
+        <item name="sample2">
+            <responseBody>   LAB_NRT2_MME1 2014-05-20 TUE 19:19:11
+  M6150 RETRIEVE MOBILE SUBSCRIBER INFORMATION - RADIO AND HSS INFORMATION  - [1/1] : COMPLD
+   IMSI = 310120017639024
+   RESULT            = OK
+   IMSI              = 310120017639024
+   MSISDN            = 6222316479
+   IMEI              = 9900033711679701  STATUS     : NOT_CONFIRM
+   GUTI              = MCC(310) MNC(120) MMEG(H&apos;8006) MMEC(H&apos;21) M-TMSI(H&apos;E8009AD5)
+   GUTI_TIME         = 2014-05-20 17:28:51:164
+   OLD_GUTI          = -
+   OLD_GUTI_TIME     = -
+   EMSC/SESS         = -                         ROAM              = NO
+   HSS_CONFIRM       = CONFIRM                   URRP              = -
+   REG_STATE         = POWER_OFF                 S1_STATE          = -
+   SUSPEND           = OFF                       UNAUTH            = NO
+   CREATE_TYPE       = GUTI_ATTACH               CREATE_TIME       = 2014-05-19 11:58:41:059
+   LAST_ACCESS_TYPE  = DETACH_REQ                LAST_ACCESS_TIME  = 2014-05-20 17:36:31:286
+   S1_RELEASE_TIME   = 2014-05-20 17:36:31:549   DEREGISTER_TIME   = 2014-05-20 17:36:31:549
+   PAGE_PROCEED      = INH                       ACTIVE_TIME       = -
+   LAST_HSS_UPD_TIME = 2014-05-20 17:28:51:021
+   E-UTRAN_CGI       = MCC(310) MNC(120) CELL(32777-9)
+   ENB_ID            = 310-120-32777(M) / ENBGRP(-)
+   TAI               = MCC(310) MNC(120) TAC(H&apos;621B)
+   TA_LIST           = TAL(3)
+                       310/120/H&apos;621B
+   DZ_LIST           = -
+   CSG               = -
+   UE_RADIO_CAPA     = H&apos;023802035C51800260CA8050B8BFC2E2FF0B8BFBF0FFCE30310009408004
+                         A1400217E00000000307E1FF9DE30000000307E1FF9C6000000000040D0B
+                         0B00098000810F01800A811F00
+   UE_NET_CAPA       = E0 60
+                       EEA0(1) EEA1(1) EEA2(1) EEA3(0) EEA4(0) EEA5(0) EEA6(0) EEA7(0)
+                       EIA0(0) EIA1(1) EIA2(1) EIA3(0) EIA4(0) EIA5(0) EIA6(0) EIA7(0)
+   MS_NET_CAPA       = -
+   MOBSCM2           = H&apos;4F18A6
+   MOBSCM3           = -
+   CODECLIST         = -
+   PAGING_DRX        = H&apos;0A00
+   VOICE_DOMAIN_PREF = VOICE_CENTRIC / CS_VOICE_ONLY
+   DEVICE_PROPERTY   = NONE
+   S102_ASSO         = OFF                       IWS_ADDR          = -
+   SUBS_STS          = SERVICE_GRANTED           HSS_ADDR          = hip.lenhss01-imscore.labtrial.net
+   NET_ACCESS_MODE   = -                         STN_SR            = -
+   CHA_CHAR          = H&apos;0100                    APN_OI            = mnc120.mcc310.gprs
+   RFSP              = 1                         ICS               = -
+   APN_CONF_CNT      = 5                         DFT_CTXT_ID       = 1
+   AMBR_MAX_UP       = 100000000(bps)            AMBR_MAX_DOWN     = 100000000(bps)
+   ROAM_RSTR         = -
+   ACCESS_RSTR       = -
+   SUBS_TAU          = -                         MPS               = -
+   VPLMN_LIPA        = -                         RELAY_NODE_IND    = -
+   MDT_USER_CONSENT  = -                         RFSP_IN_USE       = 1
+   T3412_IN_USE      = 7200 (Sec)                T3346             = -
+   KSI               = 0
+   INT_ALG           = SNOW3G
+   CIP_ALG           = SNOW3G
+   INT_KEY           = H&apos;22E2E9B5CF921D6154943A4E24A2E52B00000000000000000000000000000000
+   CIP_KEY           = H&apos;04B05EE734069305EF8D67A1DBFB448A00000000000000000000000000000000
+   NAS_UP_COUNT      = 82
+   NAS_DN_COUNT      = 39</responseBody>
+        </item>
+    </sampleDictionary>
+    <mapperProperties>
+        <item type="com.fnfr.svt.mapping.regex.RegexMapperProperties">
+            <regexMaps>
+                <item name="pattern3">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\s+IMSI =\\s</regex>
+                            <start>0</start>
+                            <end>9</end>
+                        </item>
+                        <item name="IMSI">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>9</start>
+                            <end>24</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>  IMSI = 310120017639024</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern4">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\s+MSISDN\\s+=\\s+</regex>
+                            <start>0</start>
+                            <end>23</end>
+                        </item>
+                        <item name="MSISDN">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>33</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>   MSISDN            = 6222316479</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern5">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>\\s+IMEI\\s+=\\s+</regex>
+                            <start>0</start>
+                            <end>23</end>
+                        </item>
+                        <item name="IMEI">
+                            <regex>\\d+</regex>
+                            <named>true</named>
+                            <start>23</start>
+                            <end>39</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                                <item name="([-+]?\d+\.?\d*([eE][-+]?\d+)?)">one complex decimal number</item>
+                                <item name="\d+">one or more digits</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+STATUS\\s+:\\s+</regex>
+                            <start>39</start>
+                            <end>54</end>
+                        </item>
+                        <item name="STATUS">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>54</start>
+                            <end>65</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>   IMEI              = 9900033711679701  STATUS     : NOT_CONFIRM</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+                <item name="pattern2">
+                    <groups>
+                        <item name="anchor0">
+                            <regex>REG_STATE\\s+=\\s+</regex>
+                            <start>0</start>
+                            <end>20</end>
+                        </item>
+                        <item name="REG_STATE">
+                            <regex>\\w+</regex>
+                            <named>true</named>
+                            <start>20</start>
+                            <end>30</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                        <item name="anchor1">
+                            <regex>\\s+S\\d+_STATE\\s+=\\s+</regex>
+                            <start>30</start>
+                            <end>66</end>
+                        </item>
+                        <item name="S1_STATE">
+                            <regex>[^\\r\\n]+</regex>
+                            <named>true</named>
+                            <start>66</start>
+                            <end>74</end>
+                            <suggestions>
+                                <item name=".+">one or more of any character</item>
+                                <item name="[^\r\n]+">one or more of any character except line endings</item>
+                                <item name="[^0-9\r\n]+">one or more non-digit characters except line endings</item>
+                                <item name="\S+">one or more non-whitespace characters</item>
+                                <item name="\w+">one or more word characters</item>
+                            </suggestions>
+                        </item>
+                    </groups>
+                    <sampleMatch>REG_STATE         = REGISTERED                S1_STATE          = ECM_IDLE</sampleMatch>
+                    <regexMapMode>Line</regexMapMode>
+                </item>
+            </regexMaps>
+        </item>
+    </mapperProperties>
+    <applicabilityProperties actionType="command" command="RTRV-MS-INF:IMSI=*"/>
+</ResponseMap>

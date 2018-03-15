@@ -1,0 +1,175 @@
+<?xml version="1.0"?>
+<testCase version="7.0.0.fa27930">
+    <testbed>project://a_MME/topologies/topology1.tbml</testbed>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="cf2640ba-538a-4736-902a-1bf47e8afee1" action="open" session="t1" skip="true">
+                    <command>
+                        <body>project://iTest7.0.0/session_profiles/ls.rest1.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.spirent.itest.applications.landsliderest" transferableType="com.spirent.itest.applications.landsliderest.properties.LandslideRestSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="d51f6dba-1e05-4346-b7d3-699dc2df496f" action="open" session="MME" normalOffset="1780.142">
+                    <command>
+                        <body>device:MME#ssh</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                        <sessionProperties type="com.fnfr.svt.applications.ssh.documents.SSHProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="7b34c5dc-0d04-4e39-880b-7756c311b605" action="getEnodeBDetails" session="MME" normalOffset="19.993" estimatedStepExecutionTime="1.162">
+                    <command>
+                        <body>-detailedStats false</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.068" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1ad23540-04a1-4cf1-924e-b3d7a1bf5483" action="RetrieveTestSession" session="t1" skip="true" normalOffset="23.43" estimatedStepExecutionTime="0.374">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>handle()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>handle0</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="RetrieveTestSession" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" library="0" library.inherit="false" library.sub="false" name="mme.nodal.1" name.inherit="false" name.sub="false"/>
+                </item>
+                <item guid="701d2506-87d3-4ae9-9ed7-3fc59234dfd4" action="ConfigureTsGroup" session="t1" skip="true" normalOffset="17.925">
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="ConfigureTsGroup" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" testHandle="$handle0" testHandle.inherit="false" tsId="2" tsId.inherit="false" tsId.sub="false"/>
+                </item>
+                <item guid="e034e972-b185-461e-8412-b94c6c8a93a7" action="ConfigureTestcaseFavoriteParameters" session="t1" skip="true" normalOffset="37.299">
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="ConfigureTestcaseFavoriteParameters" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" testHandle="$handle0" testHandle.inherit="false">
+                        <parameter inherit="false">
+                            <item parameterName="Imsi" parameterName.inherit="false" parameterName.sub="false" parameterValue="355451060356000" parameterValue.inherit="false" parameterValue.sub="false"/>
+                            <item parameterName="NasApn_0" parameterName.inherit="false" parameterName.sub="false" parameterValue="apn6" parameterValue.inherit="false" parameterValue.sub="false"/>
+                        </parameter>
+                        <node inherit="false">
+                            <item nodeName="EnbUserAddr" nodeName.inherit="false" nodeName.sub="false">
+                                <nodeParameter inherit="false">
+                                    <item parameterName="ip" parameterName.inherit="false" parameterName.sub="false" parameterValue="10.100.6.10" parameterValue.inherit="false" parameterValue.sub="false"/>
+                                </nodeParameter>
+                            </item>
+                            <item type="SUT" type.inherit="false" type.sub="false" nodeName="MmeSut" nodeName.inherit="false" nodeName.sub="false" sutName="mme_6" sutName.inherit="false" sutName.sub="false"/>
+                            <item nodeName="EnbControlAddr" nodeName.inherit="false" nodeName.sub="false">
+                                <nodeParameter inherit="false">
+                                    <item parameterName="ip" parameterName.inherit="false" parameterName.sub="false" parameterValue="10.100.6.1" parameterValue.inherit="false" parameterValue.sub="false"/>
+                                </nodeParameter>
+                            </item>
+                        </node>
+                    </applicationProperties>
+                </item>
+                <item guid="b2e9ae5e-0474-4c2f-8aa3-7fa90f5f78e0" action="Run" session="t1" skip="true" normalOffset="12.512" estimatedStepExecutionTime="7.987">
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>id()</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="store">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                        <storageLocation>runId0</storageLocation>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="Run" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" testHandle="$handle0" testHandle.inherit="false"/>
+                </item>
+                <item guid="9accac80-b8a7-4929-86ab-7a6b393b82ec" action="getEnodeBDetails" session="MME" normalOffset="14.328" estimatedStepExecutionTime="0.202">
+                    <command>
+                        <body>-detailedStats true</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="1.068" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="01e17423-d5e7-4632-86d0-9ea19300ff39" action="getMobileSubscriberDetails" session="MME" normalOffset="14.173" estimatedStepExecutionTime="0.194">
+                    <command>
+                        <body>-imsi 310120017639024</body>
+                    </command>
+                    <postProcessing>
+                        <analysisRules>
+                            <item>
+                                <extractorInfo extractorType="query">
+                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                        <query>mapped/Json/imsiStatus</query>
+                                    </extractorProperties>
+                                </extractorInfo>
+                                <processorInfo ruleType="assert">
+                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.AssertionPropertyGroup">
+                                        <expression>$value ne &quot;NOT_CONFIRM&quot;</expression>
+                                        <actionsWhenTrue>
+                                            <item actionId="PassTestIfNotAlreadyFailed">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup" severity="OK">
+                                                    <message>{auto_message_true}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenTrue>
+                                        <actionsWhenFalse>
+                                            <item actionId="FailTest">
+                                                <actionProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                                            </item>
+                                            <item actionId="DeclareExecutionIssue">
+                                                <actionProperties type="com.fnfr.svt.execution.builtin.actions.ExecutionIssuePropertyGroup">
+                                                    <message>{auto_message_false}</message>
+                                                </actionProperties>
+                                            </item>
+                                        </actionsWhenFalse>
+                                    </ruleProperties>
+                                </processorInfo>
+                            </item>
+                        </analysisRules>
+                    </postProcessing>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties">
+                        <completionProperties expectedIdleTime="0.577" expectedIdleTime.inherit="false"/>
+                    </applicationProperties>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="c9713213-a414-40e1-9eeb-be951f12dfd0" action="ShowRunningTestCriteria" session="t1" skip="true" normalOffset="68.998" estimatedStepExecutionTime="0.405">
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="ShowRunningTestCriteria" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" runningTestId="$runId0" runningTestId.inherit="false"/>
+                </item>
+                <item guid="a55c55f2-20e7-49ff-941d-d98d4910e021" action="StopRunningTest" session="t1" skip="true" normalOffset="112.929" estimatedStepExecutionTime="0.359">
+                    <applicationProperties type="com.fnfr.itest.platform2.shared.documents.ntaf.NtafTransferableDocumentObject" action="StopRunningTest" subharness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harness="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" harnessName="http://spirent.com/NTAF/harness/iTest/LandslideRest/Main" runningTestId="$runId0" runningTestId.inherit="false"/>
+                </item>
+                <item guid="ec8f35fd-68c4-4951-9810-0088b08939a8" action="close" session="t1" skip="true" normalOffset="27.516">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+                <item guid="1b2dafb6-af21-4d5d-af3a-338b493de64a" action="command" session="MME" normalOffset="7.003" estimatedStepExecutionTime="0.094">
+                    <command>
+                        <body>exit</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+                <item guid="e9947d0b-52ad-4f4d-ab16-5ee31d536d83" action="close" session="MME" normalOffset="0.001">
+                    <applicationProperties type="com.fnfr.svt.editors.terminal.documents.StepDefaultProperties"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
