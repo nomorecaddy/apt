@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.2.0.95bb698">
+    <baseApplication>com.fnfr.itest.applications.webservices.restful</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties" url="[param url]" url.inherit="false" acceptAllCookies="true" acceptAllCookies.inherit="false">
+        <httpHeader inherit="false" transferableToolId="com.fnfr.itest.applications.webservices.restful">
+            <memberClasses>
+                <item>com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry</item>
+            </memberClasses>
+            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="X-Auth-Token" header.inherit="false" value="$token" value.inherit="false"/>
+            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="Content-type" header.inherit="false" value="application/json" value.inherit="false"/>
+        </httpHeader>
+    </sessionProperties>
+</SessionTemplate>

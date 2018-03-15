@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SessionTemplate version="5.2.0.95bb698">
+    <baseApplication>com.fnfr.itest.applications.selenium</baseApplication>
+    <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties" browserURL="[param url]" browserURL.inherit="false">
+        <replay transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionReplayProperties">
+            <browser transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionBrowserProperties" browserType="Chrome" browserType.inherit="false"/>
+        </replay>
+    </sessionProperties>
+</SessionTemplate>

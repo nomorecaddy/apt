@@ -1,0 +1,79 @@
+============General==================
+documentation
+============Steps====================
+Procedure main
+	1 eval set token 0
+		useFieldsInCommand="false"
+	2 open t1 project://Velocity_CreateUsers/session_profiles/rest.ffsp
+		transferableToolId="com.fnfr.itest.applications.webservices.restful"
+		transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties"
+	3 GET t1 velocity/api/auth/v1/token
+		analyze
+			query mapped/Json/xtoken
+			store token
+		action="velocity/api/auth/v1/token"
+		transferableToolId="com.fnfr.itest.applications.webservices.restful"
+		transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties"
+		authenticationType="Secure"
+		authenticationType.inherit="false"
+		user="spirent"
+		user.inherit="false"
+		password.masked="true"
+		password="Hu62+w4ez8Wo9kqZ9nWi+A=="
+		password.inherit="false"
+		acceptAllCertificates="true"
+		acceptAllCertificates.inherit="false"
+		inherit="false"
+		transferableToolId="com.fnfr.itest.applications.webservices.restful"
+		memberClasses
+			item="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry"
+		item(transferableToolId="com.fnfr.itest.applications.webservices.restful")(transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry")(header="Content-type")(header.inherit="false")(value="application/json")(value.inherit="false")
+	4 eval set offset 0
+		useFieldsInCommand="false"
+	5 eval set count 1
+		useFieldsInCommand="false"
+	6 while $count > 0
+		useFieldsInCommand="false"
+		6.1 GET t1 velocity/api/user/v6/profiles?limit=200&offset=$offset
+			analyze
+				query mapped/Json/count
+				store count
+			analyze
+				query fn:count(mapped/Json/profiles/item[starts-with(name,"a")]/id)
+				assert $value > 0
+					When False
+						Eval set adminIdList ""
+						SkipRemainingRules 
+			analyze
+				query mapped/Json/profiles/item[starts-with(name,"a")]/id
+				store adminIdList
+			normalOffset="17.378"
+			estimatedStepExecutionTime="10.483"
+			action="velocity/api/user/v6/profiles?limit=200&offset=$offset"
+			transferableToolId="com.fnfr.itest.applications.webservices.restful"
+			transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties"
+			acceptAllCertificates="true"
+			acceptAllCertificates.inherit="false"
+		6.2 foreach id $adminIdList
+			useFieldsInCommand="false"
+			6.2.1 PUT t1 velocity/api/user/v6/profile/$id
+				normalOffset="162.949"
+				estimatedStepExecutionTime="19.138"
+				useResponseMapLibraryApplicability="false"
+				message="{ "role" : "ADMIN" }"
+				action="velocity/api/user/v6/profile/$id"
+				transferableToolId="com.fnfr.itest.applications.webservices.restful"
+				transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties"
+				acceptAllCertificates="true"
+				acceptAllCertificates.inherit="false"
+				responseMap="file:/Z:/Downloads/JsonBlockToQueries.ffrm"
+				useResponseMapLibraryFromSession="false"
+		6.3 eval incr offset 200
+			useFieldsInCommand="false"
+	7 close t1 
+		normalOffset="61.82"
+============Parameters===============
+parameters(escape="true")
+	parameters
+		url="https://velocity700a-cal-lab.spirenteng.com"
+		pwd="spirent"

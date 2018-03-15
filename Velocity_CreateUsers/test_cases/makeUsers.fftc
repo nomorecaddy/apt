@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<testCase version="7.0.0.fa27930">
+    <execution>
+        <parameters version="7.0.0.fa27930">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <pwd>spirent</pwd>
+                    <url>https://velocity701a-cal-lab.spirenteng.com</url>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="44ae926a-4332-4430-82d0-d2d7ecef864a" action="eval">
+                    <command>
+                        <body>set token 0</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="9bf97cbe-bff9-4032-9fe7-481e1ea4dcbb" action="open" session="t1">
+                    <command>
+                        <body>project://Velocity_CreateUsers/session_profiles/rest.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="b6226470-a4a6-4930-8501-208d6ab4bfdd" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; 100} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b131814f-03c3-45ee-8e50-46739746282d" action="comment">
+                            <command>
+                                <body>login as userXX</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="3786d436-9f01-4fc9-84f2-cd186c1db256" action="GET" session="t1">
+                                    <command>
+                                        <body>velocity/api/auth/v1/token</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>mapped/Json/xtoken</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>token</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulInvokeProperties" action="velocity/api/auth/v1/token" action.inherit="false">
+                                        <authentication transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties" authenticationType="Secure" authenticationType.inherit="false" user="[format user%02d $i]" user.inherit="false" password.masked="true" password="Hu62+w4ez8Wo9kqZ9nWi+A==" password.inherit="false" acceptAllCertificates="true" acceptAllCertificates.inherit="false"/>
+                                        <httpHeader inherit="false" transferableToolId="com.fnfr.itest.applications.webservices.restful">
+                                            <memberClasses>
+                                                <item>com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry</item>
+                                            </memberClasses>
+                                            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="Content-type" header.inherit="false" value="application/json" value.inherit="false"/>
+                                        </httpHeader>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                        <item guid="658ffb35-0800-4dbc-aa29-6d3026335257" action="comment">
+                            <command>
+                                <body>login as adminXX</body>
+                            </command>
+                            <nestedSteps>
+                                <item guid="4c74e46c-3c5e-4a77-a213-684cc0c1fedd" action="GET" session="t1">
+                                    <command>
+                                        <body>velocity/api/auth/v1/token</body>
+                                    </command>
+                                    <postProcessing>
+                                        <analysisRules>
+                                            <item>
+                                                <extractorInfo extractorType="query">
+                                                    <extractorProperties type="com.fnfr.svt.mapping.execution.extractors.QueryDataExtractorPropertyGroup">
+                                                        <query>mapped/Json/xtoken</query>
+                                                    </extractorProperties>
+                                                </extractorInfo>
+                                                <processorInfo ruleType="store">
+                                                    <ruleProperties type="com.fnfr.svt.execution.builtin.processors.StoreProcessorPropertyGroup">
+                                                        <storageLocation>token</storageLocation>
+                                                    </ruleProperties>
+                                                </processorInfo>
+                                            </item>
+                                        </analysisRules>
+                                    </postProcessing>
+                                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulInvokeProperties" action="velocity/api/auth/v1/token" action.inherit="false">
+                                        <authentication transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties" authenticationType="Secure" authenticationType.inherit="false" user="[format admin%02d $i]" user.inherit="false" password.masked="true" password="Hu62+w4ez8Wo9kqZ9nWi+A==" password.inherit="false" acceptAllCertificates="true" acceptAllCertificates.inherit="false"/>
+                                        <httpHeader inherit="false" transferableToolId="com.fnfr.itest.applications.webservices.restful">
+                                            <memberClasses>
+                                                <item>com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry</item>
+                                            </memberClasses>
+                                            <item transferableToolId="com.fnfr.itest.applications.webservices.restful" transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry" header="Content-type" header.inherit="false" value="application/json" value.inherit="false"/>
+                                        </httpHeader>
+                                    </applicationProperties>
+                                </item>
+                            </nestedSteps>
+                            <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                            <useFieldsInCommand>false</useFieldsInCommand>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="44f47fb7-90a5-46d7-a4fa-598888071451" action="close" session="t1" normalOffset="61.82">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>

@@ -1,0 +1,63 @@
+============General==================
+============Steps====================
+Procedure main
+	1 eval set token 0
+		useFieldsInCommand="false"
+	2 open t1 project://Velocity_CreateUsers/session_profiles/rest.ffsp
+		transferableToolId="com.fnfr.itest.applications.webservices.restful"
+		transferableType="com.fnfr.itest.applications.webservices.properties.restful.RESTfulSessionProperties"
+	3 for {set i 0} {$i < 100} {incr i}
+		useFieldsInCommand="false"
+		3.1 #login as userXX
+			useFieldsInCommand="false"
+			3.1.1 GET t1 velocity/api/auth/v1/token
+				analyze
+					query mapped/Json/xtoken
+					store token
+				action="velocity/api/auth/v1/token"
+				transferableToolId="com.fnfr.itest.applications.webservices.restful"
+				transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties"
+				authenticationType="Secure"
+				authenticationType.inherit="false"
+				user="[format user%02d $i]"
+				user.inherit="false"
+				password.masked="true"
+				password="Hu62+w4ez8Wo9kqZ9nWi+A=="
+				password.inherit="false"
+				acceptAllCertificates="true"
+				acceptAllCertificates.inherit="false"
+				inherit="false"
+				transferableToolId="com.fnfr.itest.applications.webservices.restful"
+				memberClasses
+					item="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry"
+				item(transferableToolId="com.fnfr.itest.applications.webservices.restful")(transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry")(header="Content-type")(header.inherit="false")(value="application/json")(value.inherit="false")
+		3.2 #login as adminXX
+			useFieldsInCommand="false"
+			3.2.1 GET t1 velocity/api/auth/v1/token
+				analyze
+					query mapped/Json/xtoken
+					store token
+				action="velocity/api/auth/v1/token"
+				transferableToolId="com.fnfr.itest.applications.webservices.restful"
+				transferableType="com.fnfr.itest.applications.webservices.properties.AuthenticationProperties"
+				authenticationType="Secure"
+				authenticationType.inherit="false"
+				user="[format admin%02d $i]"
+				user.inherit="false"
+				password.masked="true"
+				password="Hu62+w4ez8Wo9kqZ9nWi+A=="
+				password.inherit="false"
+				acceptAllCertificates="true"
+				acceptAllCertificates.inherit="false"
+				inherit="false"
+				transferableToolId="com.fnfr.itest.applications.webservices.restful"
+				memberClasses
+					item="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry"
+				item(transferableToolId="com.fnfr.itest.applications.webservices.restful")(transferableType="com.fnfr.itest.applications.webservices.properties.HTTPHeaderEntry")(header="Content-type")(header.inherit="false")(value="application/json")(value.inherit="false")
+	4 close t1 
+		normalOffset="61.82"
+============Parameters===============
+parameters(escape="true")
+	parameters
+		pwd="spirent"
+		url="https://velocity700a-cal-lab.spirenteng.com"

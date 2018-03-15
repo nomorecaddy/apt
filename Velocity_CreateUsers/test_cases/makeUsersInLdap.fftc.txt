@@ -1,0 +1,54 @@
+============General==================
+============Steps====================
+Procedure main
+	1 open t1 project://Velocity_CreateUsers/session_profiles/ite.ffsp
+		transferableToolId="com.fnfr.itest.applications.selenium"
+		transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties"
+	2 click t1 
+		target="css=div.button-common.button-common-useradmin > span"
+		normalOffset="25.907"
+		transferableToolId="com.fnfr.itest.applications.selenium"
+		transferableType="com.spirent.applications.selenium.properties.SeleniumCredentialsProperties"
+		user="admin"
+		user.inherit="false"
+		password.masked="true"
+		password="iRyLc4KQj80="
+		password.inherit="false"
+		transferableToolId="com.fnfr.itest.applications.selenium"
+		transferableType="com.spirent.applications.selenium.properties.SeleniumWaitTimeProperties"
+		targetWaitTime="60"
+		targetWaitTime.inherit="false"
+		popupWaitTime="15"
+		popupWaitTime.inherit="false"
+	3 for {set i 0} {$i < 101} {incr i}
+		useFieldsInCommand="false"
+		3.1 type t1 [format user%02d $i]
+			target="name=userid"
+			normalOffset="22.099"
+		3.2 type t1 [format user%02d $i]
+			target="name=name"
+			normalOffset="3.105"
+		3.3 type t1 SrqvrrOjrgE=
+			target="name=password"
+			normalOffset="5.759"
+		3.4 click t1 
+			target="css=button.button-ordinary-action.button-170"
+			normalOffset="0.002"
+		3.5 type t1 [format admin%02d $i]
+			target="name=userid"
+			normalOffset="22.099"
+		3.6 type t1 [format admin%02d $i]
+			target="name=name"
+			normalOffset="3.105"
+		3.7 type t1 SrqvrrOjrgE=
+			target="name=password"
+			normalOffset="5.759"
+		3.8 click t1 
+			target="css=button.button-ordinary-action.button-170"
+			normalOffset="0.002"
+	4 close t1 
+		normalOffset="8.378"
+============Parameters===============
+parameters(escape="true")
+	parameters
+		url="https://ite700a-cal-lab.spirenteng.com"

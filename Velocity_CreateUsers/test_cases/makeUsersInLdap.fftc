@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<testCase version="6.1.0.e2e4ec0">
+    <execution>
+        <parameters version="6.1.0.e2e4ec0">
+            <parameters escape="true">
+                <parameters xmlns:pt="http://www.fnfr.com/schemas/parameterTree">
+                    <url>https://ite700a-cal-lab.spirenteng.com</url>
+                </parameters>
+            </parameters>
+        </parameters>
+    </execution>
+    <procedures>
+        <item name="main">
+            <steps>
+                <item guid="e6196d53-846a-4a8e-9ae8-f5e86b17a036" action="open" session="t1">
+                    <command>
+                        <body>project://Velocity_CreateUsers/session_profiles/ite.ffsp</body>
+                    </command>
+                    <applicationProperties type="com.fnfr.svt.documents.OpenStepPropertyGroup">
+                        <stepProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumSessionProperties"/>
+                        <sessionClass type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                        <sessionVersion type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    </applicationProperties>
+                </item>
+                <item guid="2c892f9e-6e81-4389-a4b1-beb5ea05cfaa" action="click" session="t1" target="css=div.button-common.button-common-useradmin &gt; span" normalOffset="25.907">
+                    <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumClickProperties">
+                        <credentials transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumCredentialsProperties" user="admin" user.inherit="false" password.masked="true" password="iRyLc4KQj80=" password.inherit="false"/>
+                        <waitTime transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumWaitTimeProperties" targetWaitTime="60" targetWaitTime.inherit="false" popupWaitTime="15" popupWaitTime.inherit="false"/>
+                    </applicationProperties>
+                </item>
+                <item guid="f26ecb1b-b08c-411e-a3a7-48e8139c4992" action="for">
+                    <command>
+                        <body>{set i 0} {$i &lt; 101} {incr i}</body>
+                    </command>
+                    <nestedSteps>
+                        <item guid="b5312ef5-246a-4173-af24-24e5f7fa781a" action="type" session="t1" target="name=userid" normalOffset="22.099">
+                            <command>
+                                <body>[format user%02d $i]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="0f0e7841-9304-4eeb-b82e-5c5c8b9b55f1" action="type" session="t1" target="name=name" normalOffset="3.105">
+                            <command>
+                                <body>[format user%02d $i]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="97263183-90ba-4c0a-b58e-5470df58828e" action="type" session="t1" target="name=password" normalOffset="5.759">
+                            <command>
+                                <body masked="true">SrqvrrOjrgE=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="f95e8294-14e7-45a8-b8a3-033ef6b24441" action="click" session="t1" target="css=button.button-ordinary-action.button-170" normalOffset="0.002">
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumClickProperties"/>
+                        </item>
+                        <item guid="8bec2380-1ed2-4b47-888b-d437441c6263" action="type" session="t1" target="name=userid" normalOffset="22.099">
+                            <command>
+                                <body>[format admin%02d $i]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="b8edc966-00d9-417d-9644-ae82ffd9414a" action="type" session="t1" target="name=name" normalOffset="3.105">
+                            <command>
+                                <body>[format admin%02d $i]</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="8e201e9f-2c00-4f60-bd03-f8e5651af9cf" action="type" session="t1" target="name=password" normalOffset="5.759">
+                            <command>
+                                <body masked="true">SrqvrrOjrgE=</body>
+                            </command>
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumAbstractCommandProperties"/>
+                        </item>
+                        <item guid="f3bf5ec3-b49e-4653-a5c0-6b225dd5237e" action="click" session="t1" target="css=button.button-ordinary-action.button-170" normalOffset="0.002">
+                            <applicationProperties type="com.fnfr.svt.adapter.automation.tools.common.documents.TransferableDocumentObject" transferableToolId="com.fnfr.itest.applications.selenium" transferableType="com.spirent.applications.selenium.properties.SeleniumClickProperties"/>
+                        </item>
+                    </nestedSteps>
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                    <useFieldsInCommand>false</useFieldsInCommand>
+                </item>
+                <item guid="1d7ec070-e20f-4629-8674-7e9e73d15381" action="close" session="t1" normalOffset="8.378">
+                    <applicationProperties type="com.fnfr.svt.documents.EmptyPropertyGroup"/>
+                </item>
+            </steps>
+        </item>
+    </procedures>
+</testCase>
