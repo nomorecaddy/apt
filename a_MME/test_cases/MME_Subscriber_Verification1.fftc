@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <testCase version="7.0.0.fa27930">
     <general>
+        <notes> </notes>
         <emulation enable="true"/>
     </general>
     <testbed>project://a_MME/topologies/topology1.tbml</testbed>
