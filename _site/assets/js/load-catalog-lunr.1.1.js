@@ -1,25 +1,6 @@
 
 
 
-var catalog = [{
-  "title": "STC",
-  "link": "#",
-  "category": "library",
-  "excerpt": "Provides basic traffic quickcalls for the STC Tcl API session type and response maps for result and statistics views. Tested with STC FW version 4.75.",
-  "class": "Tested by Spirent"
-},{
-  "title": "CloudStress",
-  "link": "#",
-  "category": "automation",
-  "excerpt": "Example CloudStress test cases including goal-seeking, fixed, and mixed profile test scenarios.",
-  "class": "Reference"    
-},{
-  "title": "Velocity",
-  "link": "#",
-  "category": "framework",
-  "excerpt": "REST API QuickCalls for inventory, reservation, and user management in Velocity.",
-  "class": "Community"
-}]
 
 var categoryAttribute = { 
     library: {
@@ -83,9 +64,6 @@ $(document).ready(function() {
       
       var searchitem = '<div class="box card '+categoryAttribute[catalog[ref].category].color+'">' + 
                     '<div class="box-icon">'+
-                    '    <img src="'+categoryAttribute[catalog[ref].category].image+'" alt="Image" class="img-responsive">'+                     
-                    '</div>'+  
-                    
                     '<div class="line"></div>'+  
                     '<div class="info float-container">'+  
                     '<div class="col-sm-12 caorange-title">'+  
@@ -93,7 +71,7 @@ $(document).ready(function() {
                         '<h4 class="text-uppercase">'+catalog[ref].category+'</h4>'+  
                     '</div>'+  
                     '<div class=card-desc>'+      
-                    '<p>REST API QuickCalls for inventory, reservation, and user management in Velocity.</p>'+  
+                    '<p>'+catalog[ref].excerpt+'</p>'+  
                     '</div>'+  
                     '<hr />'+      
                     '<div class="col-sm-12 location-main">'+   

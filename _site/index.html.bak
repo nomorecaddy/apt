@@ -388,7 +388,7 @@
     });
 </script>
 
-
+<script src="assets/js/catalog-contents.js"></script>
 <script src="assets/js/lunr.0.7.2.js"></script>
 <!--
 <script src="assets/js/lunr.min.js"></script>

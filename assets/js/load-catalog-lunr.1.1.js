@@ -1,5 +1,7 @@
 
 
+
+
 var categoryAttribute = { 
     library: {
         color: 'cagreen',
@@ -62,9 +64,6 @@ $(document).ready(function() {
       
       var searchitem = '<div class="box card '+categoryAttribute[catalog[ref].category].color+'">' + 
                     '<div class="box-icon">'+
-                    '    <img src="'+categoryAttribute[catalog[ref].category].image+'" alt="Image" class="img-responsive">'+                     
-                    '</div>'+  
-                    
                     '<div class="line"></div>'+  
                     '<div class="info float-container">'+  
                     '<div class="col-sm-12 caorange-title">'+  
@@ -72,7 +71,7 @@ $(document).ready(function() {
                         '<h4 class="text-uppercase">'+catalog[ref].category+'</h4>'+  
                     '</div>'+  
                     '<div class=card-desc>'+      
-		    '<p>'+catalog[ref].excerpt+'</p>'+
+                    '<p>'+catalog[ref].excerpt+'</p>'+  
                     '</div>'+  
                     '<hr />'+      
                     '<div class="col-sm-12 location-main">'+   

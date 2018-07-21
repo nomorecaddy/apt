@@ -90,6 +90,7 @@ body {
 	font-weight: 300;
 	font-size: 15px;	
 }
+
 .main-menu-text {
 	color: #fff;
 	display: block;
@@ -170,9 +171,9 @@ body {
 	    -ms-flex-wrap: wrap;
 	        flex-wrap: wrap;
 	-webkit-box-pack: justify;
-	-webkit-justify-content: space-around; */
+	-webkit-justify-content: space-between;
     -ms-flex-pack: justify;
-    justify-content: space-around; */
+    justify-content: space-between; 
 }
 
 .card {
@@ -286,7 +287,7 @@ body {
 .heading h1, .heading2 h1 {
 	margin: 0 10px;
 	font-weight: 600;
-	font-size: 72px;
+	font-size: 50px;
 }
 .heading p, .heading2 p {
 	margin: 0 10px;
@@ -589,11 +590,11 @@ body {
 
 .about_proin {
 	color: black;
-	padding: 0 20px;
+	/* padding: 0 20px; */
 	text-transform: uppercase;
 	-webkit-transition: all 0.3s ease;
 	transition: all 0.3s ease;
-    font-size: 12px;
+    /* font-size: 12px; */
 }
 
 .about_proin.current, .about_proin:hover, .about_proin:focus { color: #75BD29; }
@@ -751,7 +752,9 @@ body {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(25,192,200,.6);
 }
 .contact-info-link { color: #000; }
-.contact-info-link:hover, .contact-info-link:focus { color: #19beb6; }
+.contact:hover {color : white }
+.about:hover {color : white}
+.contact-info-link:focus { color: #19beb6; }
 
 .btn-submit {
 	font-weight: normal;
