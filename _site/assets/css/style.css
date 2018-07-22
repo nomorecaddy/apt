@@ -380,7 +380,7 @@ body {
 .info > li:last-child {	border-bottom: none; }
 
 .card-desc {
-    min-height: 200px;
+    min-height: 220px;
 }
 
 .cagreen-title {
