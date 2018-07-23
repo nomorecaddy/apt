@@ -1,7 +1,7 @@
 
 title: Spirent iTest Developer Community # your title
-url: 'https://clarkwhitty.github.io/'
-baseurl: '/apt' #change it according to your repository name
+url: 'https://clarkwhitty.github.io/apt'
+baseurl: '/' #change it according to your repository name
 
 
 
