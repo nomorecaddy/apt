@@ -201,7 +201,7 @@ body {
 	background-image: url(../images/city-blur-1.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
-	background-position: bottom right;
+	background-position: bottom;
 	border-top: 7px solid #10a5cd;
 	min-height: 320px;	
 	overflow-y: auto;
