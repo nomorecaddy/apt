@@ -79,6 +79,7 @@ $(document).ready(function() {
                             '<i class="fa fa-2x"></i><span>'+catalog[ref].class+'</span>'+  
                         '</div>'+  
                         '<div class="pull-right user-icons">'+               
+                            '<a href='+catalog[ref].hrefReadme+'><i class="fa fa-file-text fa-2x"></i></a>'+  
                             '<a href='+catalog[ref].link+'><i class="fa fa-cloud-download fa-2x"></i></a>'+  
                         '</div>'+  
                     '</div>'+  
